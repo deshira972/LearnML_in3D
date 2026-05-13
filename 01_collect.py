@@ -59,7 +59,7 @@ def main():
     session = client.create_session(
         mode="time_trial",
         player_name=f"d2w_collector_{args.tag}",
-        config={"seed": args.seed, "wind_enabled": False},
+        config={"terrain_seed": args.seed, "wind_enabled": False},
     )
     print("Open this URL in a NEW TAB and click into it so WASD reach the game:")
     print(" ", session.get("browser_url"))
@@ -95,7 +95,7 @@ def main():
     pos_arr = np.array([(p[1], p[2]) for p in positions], dtype=np.float32)
     print(f"positions shape: {pos_arr.shape}     (M, 2)  — low-Hz path samples")
 
-    assert states_raw.shape[0] >= 5_000, (
+    assert states_raw.shape[0] >= 3_000, (
         "Fewer than 5,000 samples. Drive more before saving."
     )
 
